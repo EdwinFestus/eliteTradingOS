@@ -8,21 +8,21 @@ const tradeSchema = new mongoose.Schema({
     lotSize: { type: Number, required: true },
     stopLoss: { type: Number, required: true },
     takeProfit: Number,
-    profitLoss: Number,
-    rrRatio: Number,
+    // profitLoss: Number,
+    // rrRatio: Number,
     
-    strategy: String,
-    marketCondition: String,
-    setupGrade: String,
+    // strategy: String,
+    // marketCondition: String,
+    // setupGrade: String,
 
-    emotionBefore: String,
-    emotionAfter: String,
+    // emotionBefore: String,
+    // emotionAfter: String,
 
-    mistakes: String,
-    lessons: String,
+    // mistakes: String,
+    // lessons: String,
 
-    screenshotBefore: String, 
-    screenshotAfter: String,
+    // screenshotBefore: String, 
+    // screenshotAfter: String,
 
     result: {type: String, enum: ["WIN", "LOSS", "BREAKEVEN"]},
 
@@ -31,3 +31,7 @@ const tradeSchema = new mongoose.Schema({
         ref: 'User'
     }
 });
+
+const Trade = mongoose.model('Trade', tradeSchema);
+
+export default Trade;

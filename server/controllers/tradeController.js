@@ -1,9 +1,10 @@
-const Trade = require('../models/Trade');
+import Trade from '../models/Trade.js';
 
 // Create a new trade
 const createTrade = async (req, res) => {
     try {
         const trade = new Trade(req.body);
+        await trade.save();
 
         res.status(201).json({
             success: true,
@@ -36,7 +37,7 @@ const getTrades = async (req, res) => {
 
 
 // Get a trade by ID
-const getTradeById = async (req, res) => {
+const getTrade = async (req, res) => {
     try { 
         const trade = await Trade.findById(req.params.id).populate('user', 'username email');
         if (!trade) {
@@ -104,7 +105,7 @@ const deleteTrade = async (req, res) => {
 };
 
 
-module.exports = {
+export {
     createTrade,
     getTrades,
     getTrade,
