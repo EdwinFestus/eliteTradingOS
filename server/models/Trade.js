@@ -1,12 +1,12 @@
 import mongoose from 'mongoose';
 
 const tradeSchema = new mongoose.Schema({
-    pair: String,
-    date: Date,
-    orderType: String,
-    entry: Number,
-    lotSize: Number,
-    stopLoss: Number,
+    pair: { type: String,enum: ["Vol 75", "Vol 75(1s)", "Vol 10", "Vol 10(1s)"], required: true },
+    // date: { type: Date, required: true },
+    orderType: { type: String,enum: ["LONG", "SHORT"], required: true },
+    entry: { type: Number, required: true },
+    lotSize: { type: Number, required: true },
+    stopLoss: { type: Number, required: true },
     takeProfit: Number,
     profitLoss: Number,
     rrRatio: Number,
@@ -21,10 +21,10 @@ const tradeSchema = new mongoose.Schema({
     mistakes: String,
     lessons: String,
 
-    screenshotBefore: String,
+    screenshotBefore: String, 
     screenshotAfter: String,
 
-    result: String,
+    result: {type: String, enum: ["WIN", "LOSS", "BREAKEVEN"]},
 
     user: {
         type: mongoose.Schema.Types.ObjectId,
