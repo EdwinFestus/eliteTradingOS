@@ -8,6 +8,8 @@ server/node_modules/
 server/.env
 server/hash.txt
 
+*.uploads
+
 # Ignore build files
 dist/
 build/
